@@ -91,7 +91,7 @@
 												@if(\App\Option::showSupplierPrices())
 													<td style="width:20%" class="theprice">
 														<div class="form-group required" aria-required="true">
-															<input type="number" name="supplier_price[]" step="0.01" value="" class="form-control supplier-price" style="max-width:90%; color: #717171;" disabled="disabled"/>
+															<input type="number" name="supplier_price[]" step="0.01" value="" class="form-control supplier-price" style="max-width:90%; color: #717171;"/>
 														</div>
 													</td>
 												@else
