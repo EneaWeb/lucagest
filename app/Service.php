@@ -32,11 +32,6 @@ class Service extends Model
     {
         return $this->hasMany('\App\OrderDetail');
     }
-    
-    public function ordersCount()
-    {
-        return \App\OrderDetail::where('service_id', $this->id)->groupBy('order_id')->count();
-    }
 
     public function area()
     {

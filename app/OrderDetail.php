@@ -13,8 +13,10 @@ class OrderDetail extends Model
      */
     protected $fillable = [
         'order_id',
-        'service_id',
-        'price'
+        'area_id',
+        'name',
+        'supplier_price',
+        'total_price'
     ];
 
     /**
@@ -27,14 +29,14 @@ class OrderDetail extends Model
     /**
      * Relations
      */
-
-     public function service()
-     {
-         return $this->belongsTo('\App\Service');
-     }
      
      public function order()
      {
          return $this->belongsTo('\App\Order');
+     }
+
+     public function area()
+     {
+         return $this->belongsTo('\App\Area');
      }
 }

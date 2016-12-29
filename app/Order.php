@@ -13,8 +13,10 @@ class Order extends Model
      */
     protected $fillable = [
         'customer_name', 
+        'customer_email',
         'customer_contact',
-        'payed'
+        'payed',
+        'notes'
     ];
 
     /**
@@ -42,7 +44,7 @@ class Order extends Model
      {
          $a = 0;
          foreach ($this->details as $detail) {
-            $a += $detail->service->price;
+             $a += $detail->supplier_price;
          }
          return number_format($a, 2, ',', '.');
      }
@@ -51,7 +53,7 @@ class Order extends Model
      {
          $a = 0;
          foreach ($this->details as $detail) {
-             $a += $detail->price;
+             $a += $detail->final_price;
          }
          return number_format($a, 2, ',', '.');
      }

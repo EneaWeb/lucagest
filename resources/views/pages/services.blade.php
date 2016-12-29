@@ -65,30 +65,36 @@
                 <table class="table table-striped dataTable no-footer" id="services_table">
                 <thead>
                     <tr>
-                    <th style="width:30%">Nome Servizio</th>
-                    <th style="width:30%">Area</th>
-                    <th style="width:15%">Prezzo</th>
-                    <th style="width:15%">Usato in n. ordini</th>
-                    <th style="width:20%">Azioni</th>
+                        <th>Nome Servizio</th>
+                        <th>Area</th>
+                        <th>Prezzo</th>
+                        <th>Azioni</th>
                     </tr>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
                 <tbody>
                     @foreach($services as $service)
                     <tr>
                         <td class="v-align-middle semi-bold">{!!$service->name!!}</td>
                         <td class="v-align-middle semi-bold">{!!$service->area->name!!}</td>
                         <td class="v-align-middle semi-bold">{!!number_format($service->price, 2, ',', '.')!!}</td>
-                        <td class="v-align-middle">{!!$service->ordersCount()!!}</td>
                         <td class="v-align-middle semi-bold">
-                            {!!Form::open(['url'=>'/service/delete', 'method'=>'POST', 'style'=>'display: inline-block; margin-top: 4px;'])!!}
-                                {!!Form::hidden('service_id', $service->id)!!}
-                                {!!Form::submit('&#xf1f8;', ['class'=>'', 'style'=>'font-family:"FontAwesome"'])!!}
-                            {!!Form::close()!!}
                             <a class="gallery-item" href="#" data-toggle="modal" data-target="#modal_edit_service" data-service_id="{!!$service->id!!}" class="tile tile-primary">
-                                <button class="">
+                                <button class="btn btn-default" style="border-radius:50%; float:left;">
                                     <i class="fa fa-pencil"></i>
                                 </button>
                             </a>
+                            {!!Form::open(['url'=>'/service/delete', 'method'=>'POST', 'style'=>'display: inline-block; margin-top: 4px;'])!!}
+                                {!!Form::hidden('service_id', $service->id)!!}
+                                {!!Form::submit('&#xf1f8;', ['class'=>'btn btn-default', 'style'=>'border-radius:50%; margin-top:-4px; float:left; font-family:"FontAwesome"'])!!}
+                            {!!Form::close()!!}
                         </td>
                     </tr>
                     @endforeach
@@ -140,6 +146,24 @@
         });
 
     })
+
+    $(document).ready(function() {
+        
+        //var lastColumn = $('#sold-by-item').find('th:last').index();
+        //var lastColumnMinusOne = lastColumn-1;
+        
+        $('#services_table').DataTable( {
+            //"order": [[ lastColumnMinusOne, "desc" ]],
+            "language": { "url": "/assets/plugins/jquery-datatable/it.json" },
+            sScrollX: "100%",
+            paginate: false,
+            bSort: true,
+            deferRender: true,
+            dom: 'Bfrtip'
+
+        });
+
+    });
 </script>
 
 @stop

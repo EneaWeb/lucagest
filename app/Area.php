@@ -12,7 +12,8 @@ class Area extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'active'
     ];
 
     /**
@@ -29,6 +30,11 @@ class Area extends Model
      public function services()
      {
          return $this->hasMany('\App\Service');
+     }
+
+     public function servicesCount()
+     {
+         return $this->services()->count();
      }
 
 }

@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'hello@example.com',
-        'name' => 'Example',
+        'address' => 'no-reply@bgnetwork.it',
+        'name' => 'BG Network',
     ],
 
     /*
@@ -110,6 +110,6 @@ return [
     |
     */
 
-    'sendmail' => '/usr/sbin/sendmail -bs',
+    'sendmail' => env('MAIL_SENDMAIL', '/usr/sbin/sendmail -bs'),
 
 ];
