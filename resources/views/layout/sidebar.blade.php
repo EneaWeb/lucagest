@@ -1,7 +1,7 @@
 <nav class="page-sidebar" data-pages="sidebar">
 <!-- BEGIN SIDEBAR MENU HEADER-->
 <div class="sidebar-header">
-   <img src="/assets/img/logo_white.png" alt="logo" class="brand" data-src="/assets/img/logo_white.png" data-src-retina="/assets/img/logo_white.png" width="78" height="22">
+   <img src="/assets/img/logo_white.png" alt="logo" class="brand" data-src="/assets/img/logo_white.png" data-src-retina="/assets/img/logo_white.png" style="width:78px; height:auto">
 </div>
 <!-- END SIDEBAR MENU HEADER-->
 <!-- START SIDEBAR MENU -->
