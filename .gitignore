@@ -1,6 +1,8 @@
 /node_modules
 /public/storage
 /storage/framework/views/*
+/storage/framework/sessions/*
+/storage/framework/cache/*
 /.idea
 Homestead.json
 Homestead.yaml
