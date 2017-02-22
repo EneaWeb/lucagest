@@ -37,7 +37,7 @@
    <div class=" pull-left sm-table hidden-xs hidden-sm">
       <div class="header-inner">
       <div class="brand inline">
-         <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo.png" width="78" height="22">
+         <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo.png" style="width:78px; height:auto">
       </div>
       <!-- START NOTIFICATION LIST -->
       <ul class="notification-list no-margin hidden-sm hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
