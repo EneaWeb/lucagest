@@ -17,7 +17,7 @@
       <div class="header-inner">
          <div class="brand inline">
             <a href="/">
-            <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo_2x.png" width="78" height="22">
+            <img src="/assets/img/logo.png" alt="logo" data-src="/assets/img/logo.png" data-src-retina="/assets/img/logo.png" width="78" height="22">
             </a>
          </div>
       </div>
