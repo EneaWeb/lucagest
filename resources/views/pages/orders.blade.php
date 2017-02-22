@@ -17,7 +17,9 @@
                     <tr>
                     <th style="width:5%">ID</th>
                     <th style="width:30%">Cliente</th>
-                    <th style="width:10%">Fornitore</th>
+                    @if(\App\Option::showSupplierPrices())
+                        <th style="width:10%">Fornitore</th>
+                    @endif
                     <th style="width:10%">Tot</th>
                     <th style="width:20%">Data</th>
                     <th style="width:10%">Pagato</th>
@@ -29,7 +31,9 @@
                     <tr>
                     <td class="v-align-middle">{!!$order->id!!}</td>
                     <td class="v-align-middle semi-bold">{!!$order->customer_name!!} {!!$order->customer_contact != '' ? '- '.$order->customer_contact : ''!!}</td>
-                    <td class="v-align-middle">{!!$order->supplierTotal()!!}</td>
+                    @if(\App\Option::showSupplierPrices())
+                        <td class="v-align-middle">{!!$order->supplierTotal()!!}</td>
+                    @endif
                     <td class="v-align-middle semi-bold">{!!$order->total()!!}</td>
                     <td class="v-align-middle semi-bold">{!!$order->created_at->format('d/m/Y')!!}</td>
                     <td class="v-align-middle semi-bold">@if ($order->payed == 1) <i class="fa fa-check"></i> @endif</td>
