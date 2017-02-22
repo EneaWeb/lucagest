@@ -19,7 +19,8 @@
                     <th style="width:10%">Fornitore</th>
                     <th style="width:10%">Tot</th>
                     <th style="width:20%">Data</th>
-                    <th style="width:25%">Azioni</th>
+                    <th style="width:10%">Pagato</th>
+                    <th style="width:15%">Azioni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,6 +31,7 @@
                     <td class="v-align-middle"><?php echo $order->supplierTotal(); ?></td>
                     <td class="v-align-middle semi-bold"><?php echo $order->total(); ?></td>
                     <td class="v-align-middle semi-bold"><?php echo $order->created_at->format('d/m/Y'); ?></td>
+                    <td class="v-align-middle semi-bold"><?php if($order->payed == 1): ?> <i class="fa fa-check"></i> <?php endif; ?></td>
                     <td class="v-align-middle semi-bold">
                         <?php echo Form::open(['url'=>'/order/delete', 'method'=>'POST']); ?>
 
