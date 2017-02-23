@@ -133,7 +133,7 @@ class OrderController extends Controller
                 'customer_contact' => $customerContact,
                 'notes' => $notes,
                 'payed' => $payed,
-                'status' => $request->get('status')
+                'status' => $request->get('status') == null ? 'lavorazione' : $request->get('status')
             ]); $order->save();
         }
 
