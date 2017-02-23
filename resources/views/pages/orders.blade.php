@@ -21,8 +21,9 @@
                         <th style="width:10%">Fornitore</th>
                     @endif
                     <th style="width:10%">Tot</th>
-                    <th style="width:20%">Data</th>
-                    <th style="width:10%">Pagato</th>
+                    <th style="width:15%">Data</th>
+                    <th style="width:13%">Pagato</th>
+                    <th style="width:12%">Status</th>
                     <th style="width:15%">Azioni</th>
                     </tr>
                 </thead>
@@ -37,6 +38,7 @@
                     <td class="v-align-middle semi-bold">{!!$order->total()!!}</td>
                     <td class="v-align-middle semi-bold">{!!$order->created_at->format('d/m/Y')!!}</td>
                     <td class="v-align-middle semi-bold">@if ($order->payed == 1) <i class="fa fa-check"></i> @endif</td>
+                    <td class="v-align-middle semi-bold">{{ucfirst($order->status)}}</td>
                     <td class="v-align-middle semi-bold">
                         {!!Form::open(['url'=>'/order/delete', 'method'=>'POST'])!!}
                         {!!Form::hidden('order_id', $order->id)!!}
