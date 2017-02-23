@@ -63,6 +63,17 @@
 									</div>
 								</div>
 
+								<div class="form-group">
+									<label for="payed" class="col-sm-3 control-label">Status</label>
+									<div class="col-sm-9">
+                                        <?php echo Form::select('status', ['lavorazione'=>'Lavorazione',
+                                                                    'pronto'=>'Pronto',
+                                                                    'consegnato'=>'Consegnato',
+                                                                    'annullato'=>'Annullato'], $order->status, ['class'=>'form-control']); ?>
+
+									</div>
+								</div>
+
 								<br>
 
 								<table class="table table-striped dataTable no-footer">

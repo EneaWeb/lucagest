@@ -44,7 +44,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        return $this->renderExceptionWithWhoops($exception);
+        //return parent::render($request, $exception);
     }
 
     /**
@@ -62,4 +63,23 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest('login');
     }
+
+    /**
+     * Render an exception using Whoops.
+     * 
+     * @param  \Exception $e
+     * @return \Illuminate\Http\Response
+     */
+    protected function renderExceptionWithWhoops(Exception $exception)
+    {
+        $whoops = new \Whoops\Run;
+        $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
+
+        return new \Illuminate\Http\Response(
+            $whoops->handleException($exception),
+            $exception->getStatusCode(),
+            $exception->getHeaders()
+        );
+    }
+
 }

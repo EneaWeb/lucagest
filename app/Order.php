@@ -16,7 +16,8 @@ class Order extends Model
         'customer_email',
         'customer_contact',
         'payed',
-        'notes'
+        'notes',
+        'status'
     ];
 
     /**

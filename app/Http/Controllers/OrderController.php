@@ -48,14 +48,45 @@ class OrderController extends Controller
         return view('pages.edit_order', compact('order', 'oldAreas'));
     }
 
+    /*
+    EXAMPLE
+
+    "customer_name" => ""
+    "customer_email" => ""
+    "customer_contact" => ""
+    "notes" => "<p><br></p>"
+    "service" => array:5 [▼
+        0 => "5"
+        1 => "-"
+        2 => "15"
+        3 => "19"
+        4 => "-"
+    ]
+    "supplier_price" => array:5 [▼
+        0 => "60.00"
+        1 => ""
+        2 => "60.00"
+        3 => "50.00"
+        4 => ""
+    ]
+    "total_price" => array:5 [▼
+        0 => "36"
+        1 => ""
+        2 => "270.00"
+        3 => "32723"
+        4 => ""
+    ]
+
+    */
+
     public function saveOrder(Request $request)
     {
 
         //return dd($request->all());
 
-        $services = array_diff($request->get('service'), ['', '-']);
-        $supplier_prices = array_diff($request->get('supplier_price'), ['', '-']);
-        $total_prices = array_diff($request->get('total_price'), ['', '-']);
+        $services = array_values(array_diff($request->get('service'), ['', '-']));
+        $supplier_prices = array_values(array_diff($request->get('supplier_price'), ['', '-']));
+        $total_prices = array_values(array_diff($request->get('total_price'), ['', '-']));
         $payed = $request->has('payed') ? '1' : '0';
 
         //return dd($total_prices);
@@ -65,13 +96,19 @@ class OrderController extends Controller
         $customerContact = $request->has('customer_contact') ? $request->get('customer_contact') : '';
         $notes = $request->has('notes') ? $request->get('notes') : '';
 
-        //return dd($services_array);
-
-
         // if is an UPDATE
         if ($request->has('order_id')) {
             // get original order id
             $order = \App\Order::find($request->get('order_id'));
+
+            $order->update([
+                'customer_name' => $customerName,
+                'customer_email' => $customerEmail,
+                'customer_contact' => $customerContact,
+                'notes' => $notes,
+                'payed' => $payed,
+                'status' => $request->get('status')
+            ]);
 
             $services_array = array();
             for ($i = 0; $i < count($services); $i++) {
@@ -95,7 +132,8 @@ class OrderController extends Controller
                 'customer_email' => $customerEmail,
                 'customer_contact' => $customerContact,
                 'notes' => $notes,
-                'payed' => $payed
+                'payed' => $payed,
+                'status' => $request->get('status')
             ]); $order->save();
         }
 
