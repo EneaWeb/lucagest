@@ -37,7 +37,7 @@ class OrderMail
 
       // prepare pdf
       $order = \App\Order::find($order_id);
-      $pdf = PDF::loadView('pdf.invoice', $order);
+      $pdf = PDF::loadView('pdf.invoice', compact('order'));
 
       // prepare content
       $data = [
@@ -46,7 +46,7 @@ class OrderMail
          ]; 
       
       // send mail
-      Mail::send('email.invoice', $data, function($message) use ($data, $pdf, $order_id, $recipient, $sender, $bcc, $cc, $customer_name)
+      Mail::send('email.invoice', $data, function($message) use ($data, $pdf, $order, $order_id, $recipient, $sender, $bcc, $cc, $customer_name)
       {
          $message->subject('Ordine #'.$order_id);
          $message->from($sender);
