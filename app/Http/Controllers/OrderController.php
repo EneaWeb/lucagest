@@ -168,7 +168,7 @@ class OrderController extends Controller
             ]); $orderDetail->save();
         }
 
-        return redirect('/order/edit/'.$order->id);
+        return redirect('/orders');
     }
 
     public function deleteOrder(Request $request)
