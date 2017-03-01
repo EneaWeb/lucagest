@@ -45,7 +45,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof \Illuminate\Exception\MaintenanceModeException\MaintenanceModeException ) {
+        if ($exception instanceof MaintenanceModeException ) {
             return parent::render($request, $exception);
         }
         return $this->renderExceptionWithWhoops($exception);
