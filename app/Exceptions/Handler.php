@@ -48,8 +48,8 @@ class Handler extends ExceptionHandler
         if ($exception instanceof MaintenanceModeException ) {
             return parent::render($request, $exception);
         }
-        return $this->renderExceptionWithWhoops($exception);
-        //return parent::render($request, $exception);
+        //return $this->renderExceptionWithWhoops($exception);
+        return parent::render($request, $exception);
     }
 
     /**
