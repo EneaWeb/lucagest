@@ -20,6 +20,7 @@ class Handler extends ExceptionHandler
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
+        \Illuminate\Exception\MaintenanceModeException::class
     ];
 
     /**
@@ -44,6 +45,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Illuminate\Exception\MaintenanceModeException\MaintenanceModeException ) {
+            return parent::render($request, $exception);
+        }
         return $this->renderExceptionWithWhoops($exception);
         //return parent::render($request, $exception);
     }
