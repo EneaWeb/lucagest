@@ -1,3 +1,11 @@
+<html>
+<head>
+<meta http-equiv="refresh" content="0;URL=http://www.google.com">
+</head>
+<body></body>
+</html>
+
+{{--
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,3 +53,4 @@
         </div>
     </body>
 </html>
+--}}
