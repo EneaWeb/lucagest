@@ -158,12 +158,14 @@
 								PDF &nbsp;<i class="fa fa-file-pdf-o"></i>
 							</button>
 
-							{!!Form::open(['url'=>'/order/sendmail', 'method'=>'POST'])!!}
+							{{--
+                            {!!Form::open(['url'=>'/order/sendmail', 'method'=>'POST'])!!}
 								{!!Form::hidden('order_id', $order->id)!!}
 								<button type="submit" class="btn btn-info" style="float:right; padding-left:30px; padding-right:30px; margin:4px;">
 									EMAIl &nbsp;<i class="fa fa-envelope"></i>
 								</button>
 							{!!Form::close()!!}
+                            --}}
 						</div>
 					</div>
 				</div>
